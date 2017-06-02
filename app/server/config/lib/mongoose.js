@@ -7,8 +7,8 @@ const path = require('path');
 
 
 exports.loadModels = function (callback) {
-
-
+	require('../../modules/catalogue/models/category.model');
+	console.log(callback);
 	if (callback) callback();
 };
 
@@ -30,6 +30,7 @@ exports.connect = function (cb) {
 exports.disconnect = function (callback) {
 	mongoose.disconnect(err => {
 		console.info(chalk.yellow('Disconnected from MongoDB'));
-		callback(err);
+		
+		if (callback) callback();
 	})
 };

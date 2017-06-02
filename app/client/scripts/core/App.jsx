@@ -20,9 +20,9 @@ export default class App extends Component {
 						<h1>Hello, World!</h1>
 					</MainLayout>
 					<main>
-					<Route exact path="/" component={HomePage} />
-					<Route exact path="/plp/:categoryId" component={ProductListPage} />
-					<Route exact path="/pdp/:productId" component={ProductDetailsPage} />
+						<Route exact path="/" component={HomePage} />
+						<Route exact path="/category/:categoryId" component={ProductListPage} />
+						<Route exact path="/product/:productId" component={ProductDetailsPage} />
 					</main>
 				</div>
 			</Router>

@@ -9,9 +9,13 @@ const runSequence = require('run-sequence');
 rd('./gulp');
 
 gulp.task('default', () =>
-    runSequence('sass.dev', 'scripts:dev', 'html:dev', 'fonts:copy', 'images.copy', 'server', 'watch'));
+    runSequence('clean:dev', 'sass.dev', 'scripts:dev', 'html:dev', 'fonts:copy', 'images.copy', 'server', 'watch'));
+
+gulp.task('default2', () =>
+    runSequence('clean:dev', 'server', 'sass.dev', 'scripts:dev', 'html:dev', 'fonts:copy', 'images.copy', 'watch'));
 
 
 
 // Run the project tests
 gulp.task('test:server', (done) => runSequence('env:test', 'mocha', done));
+

@@ -12,7 +12,7 @@ gulp.task('default', () =>
     runSequence('clean:dev', 'sass.dev', 'scripts:dev', 'html:dev', 'fonts:copy', 'images.copy', 'server', 'watch'));
 
 gulp.task('default2', () =>
-    runSequence('clean:dev', 'server', 'sass.dev', 'scripts:dev', 'html:dev', 'fonts:copy', 'images.copy', 'watch'));
+    runSequence('clean:dev', 'server', 'sass.dev', 'scripts:dev', 'html:dev', 'fonts:copy', 'images:copy', 'watch'));
 
 
 

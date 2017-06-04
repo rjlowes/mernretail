@@ -38,9 +38,8 @@ module.exports = function (server) {
 		path: '/api/categories/{categoryId}/products',
 		handler: function (request, reply) {
 			let categoryId = request.params.categoryId;
-			console.log('looking for category ', categoryId);
+			let products = [];
 
-			var products = [];
 			for(var i = 0; i < 10; i++) {
 				products.push({
 					id: i,
@@ -51,6 +50,18 @@ module.exports = function (server) {
 			reply(products);
 		}
 	});
+
+	server.route({
+		method: 'GET',
+		path: '/api/products/{productId}',
+		handler: function (request, reply) {
+			let productId = request.params.productId;
+			let product = {
+                title: 'Product' + productId
+			};
+			reply(product);
+		}
+	})
 
 	server.route({
 		method: 'GET',

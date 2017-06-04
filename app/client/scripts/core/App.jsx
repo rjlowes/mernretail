@@ -22,7 +22,7 @@ export default class App extends Component {
 					<main>
 						<Route exact path="/" component={HomePage} />
 						<Route exact path="/category/:categoryId" component={ProductListPage} />
-						<Route exact path="/product/:productId" component={ProductDetailsPage} />
+						<Route exact path="/products/:productId" component={ProductDetailsPage} />
 					</main>
 				</div>
 			</Router>

@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import ProductCard from 'lib/catalogue/ProductCard';
+
 
 export default class ProductList extends Component {
 
@@ -21,9 +23,10 @@ export default class ProductList extends Component {
 	render() {
 		return (
 			<ul>
-				{this.props.products.map(product => {
+				{this.props.products.map((product, index) => {
 					return (
-						<li>
+						<li key={index}>
+                            <ProductCard product={product} />
 							<article>
 								{product.title}
 							</article>

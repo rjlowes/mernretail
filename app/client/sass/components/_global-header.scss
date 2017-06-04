@@ -1,0 +1,57 @@
+.global-header {
+    @include clearfix;
+    background: #fff;
+    border-bottom: 1px solid $border-color;
+    height: 65px;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 100;
+}
+
+.global-header__logo {
+    display: block;
+    margin: 9px auto;
+    width: 142px;
+
+    & img {
+        width: 100%;
+    }
+}
+
+.global-header__menu-btn {
+    border: 1px solid rgba(62,62,62,.08);
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    transition: border 1s ease;
+    width: 45px;
+    height: 45px;
+    padding: 7px;
+    z-index: 10001;
+}
+
+.global-header__menu-btn svg {
+    display: block;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 14px;
+    height: 14px;
+    margin: 0;
+    padding: 0;
+}
+
+.global-header-basket-btn {
+	border: 1px solid rgba(62,62,62,.08);
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transition: border 1s ease;
+    width: 45px;
+    height: 45px;
+    padding: 7px;
+    z-index: 10001;
+}

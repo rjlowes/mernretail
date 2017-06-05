@@ -11,7 +11,16 @@ import ProductListPage from '../modules/catalogue/ProductListPage';
 import ProductDetailsPage from '../modules/catalogue/ProductDetailsPage';
 
 
+import store from 'lib/redux/store';
+import {addLastCategory} from 'lib/redux/actions/categoryActions';
+
+
 export default class App extends Component {
+
+	componentDidMount() {
+		store.dispatch(addLastCategory('wc_dept_mens-tees'));
+	}
+
 	render() {
 		return (
 			<Router>

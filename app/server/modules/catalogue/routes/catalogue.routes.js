@@ -63,13 +63,16 @@ module.exports = function (server) {
 		}
 	})
 
-	server.route({
-		method: 'GET',
-		path: '/{path*}',
-		handler: function (request, reply) {
-			reply.file('./public/index.html');
-		}
-	});
+	// server.route({
+	// 	method: 'GET',
+	// 	path: '/{path*}',
+	// 	handler: function (request, reply) {
+	// 		console.log('iniifijdifjidjifj');
+	// 		reply.file('./public/index.html');
+	// 	}
+	// });
+
+
 };
 
 

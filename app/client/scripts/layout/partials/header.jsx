@@ -1,39 +1,43 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 import Navigation from 'lib/navigation/Navigation';
 
 
 export default class Header extends Component {
 
-	
-
 	render() {
 		return (
-			<header className="navbar">
-                <div className="navbar__btn">
-                    <div id="hamburger" className="hamburglar">
-                        <div className="burger-icon">
-                            <div className="burger-container">
-                                <span className="burger-bun-top"></span>
-                                <span className="burger-filling"></span>
-                                <span className="burger-bun-bot"></span>
-                            </div>
-                        </div>
-                    </div>
+			<header className="global-header">
+
+                <button id="main-menu-open" className="global-header__menu-btn fx-pipes">
+                    <span className="fx-pipes__bottom"></span>
+                    <span className="fx-pipes__top"></span>
+                    <span className="fx-pipes__left"></span>
+                    <span className="fx-pipes__right"></span>
+                </button>
+
+                <button id="shopping-basket-open" className="global-header-basket-btn fx-pipes">
+                    <span className="fx-pipes__bottom"></span>
+                    <span className="fx-pipes__top"></span>
+                    <span className="fx-pipes__left"></span>
+                    <span className="fx-pipes__right"></span>
+                </button>
+
+                <div className="global-header__navigation">
+                    <Navigation />
                 </div>
-                <div className="navbar__logo">
-                    <a className="logo" href="#/">
+
+                <div className="navbar__basket">
+                    mini basket...
+                </div>
+
+                <div className="global-header__logo">
+                    <Link to="/" className="logo" href="#/">
                         <img src="/images/logo2.png" className="img-responsive" />
-                    </a>
+                    </Link>
                 </div>
-                <nav className="navbar__menu">
-
-                    <div className="navbar__search"></div>
-                </nav>
-				<Navigation />
 			</header>
-
-
 		);
 	}
 }

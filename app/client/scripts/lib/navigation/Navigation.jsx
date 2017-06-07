@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import NavigationList from 'lib/navigation/NavigationList';
 import NavigationItem from 'lib/navigation/NavigationItem';
 
+import Search from 'lib/navigation/Search';
 
 export default class Navigation extends Component {
 
@@ -26,13 +27,15 @@ export default class Navigation extends Component {
 	}
 
 	setDisplayTree() {
-		
+
+	    // to open body.show-nav
+
 		let itemList = (
-			<ul>
+			<ul className="nav-list nav-list--l0">
 				{this.state.cats.map((category, index) => {
 					return(
-						<li key={index}>
-							<Link to={`/category/${category.slug}`}>{category.name}</Link>
+						<li key={index} className="nav-list__item">
+							<Link to={`/category/${category.slug}`} className="nav-list__item-link">{category.name}</Link>
 							{category.children.length > 0 && 
 								<ul>
 									{category.children.map((category, index) => {
@@ -57,11 +60,15 @@ export default class Navigation extends Component {
 		let itemList = this.setDisplayTree();
 
 		return (
-			<nav>
-				<p>Nav start</p>
-				{itemList}
-				<p>Nav end</p>
-			</nav>
+			<div className="main-menu">
+				<nav className="main-menu__container">
+					<span id="close-menu" className="main-menu__btn-close icon icon--inverse">
+						S
+					</span>
+                    <Search />
+					{itemList}
+				</nav>
+			</div>
 		);
 	}
 }

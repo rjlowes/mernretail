@@ -9,12 +9,12 @@ const path = require('path');
 exports.connect = function (server) {
 	server.connection({
 		host: 'localhost',
-		port: 3000,
-		routes: {
-			files: {
-				relativeTo: path.join(__dirname, 'public')
-			}
-		}
+		port: 3000
+		// routes: {
+		// 	files: {
+		// 		relativeTo: path.join(__dirname, 'public')
+		// 	}
+		// }
 	});
 };
 
@@ -46,15 +46,43 @@ exports.init = function () {
 		}
 	});
 
+    server.route({
+        method: 'GET',
+        path: '/styles/{file*}',
+        handler: {
+            directory: {
+                path: 'public/styles/'
+            }
+        }
+    });
+
+	server.route({
+        method: 'GET',
+        path: '/images/{file*}',
+        handler: {
+            directory: {
+                path: 'public/images/'
+            }
+        }
+    });
+
 	// server.route({
 	// 	method: 'GET',
 	// 	path: '/{file*}',
 	// 	handler: {
 	// 		file: function(request) {
-	// 			return requst.param.filename;
+	// 			return request.param.filename;
 	// 		}
 	// 	}
 	// });
+
+    server.route({
+        method: 'GET',
+        path: '/',
+        handler: function (request, reply) {
+            reply.file('./public/index.html');
+        }
+    });
 
 	return server;
 };

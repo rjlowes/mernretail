@@ -11,7 +11,7 @@ export default class MainLayout extends Component {
 	}
 	render() {
 		return (
-			<div className="container">
+			<div className="containerxx">
 				<Header />
 				<header>
 					<ul className="list-nav">
@@ -21,6 +21,8 @@ export default class MainLayout extends Component {
 					</ul>
 				</header>
 				{this.props.children}
+
+
 			</div>
 		);
 	}

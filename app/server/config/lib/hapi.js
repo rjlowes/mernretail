@@ -3,12 +3,18 @@
 const Hapi = require('hapi');
 const inert = require('inert');
 const chalk = require('chalk');
+const path = require('path');
 
 
 exports.connect = function (server) {
 	server.connection({
 		host: 'localhost',
-		port: 3000
+		port: 3000,
+		routes: {
+			files: {
+				relativeTo: path.join(__dirname, 'public')
+			}
+		}
 	});
 };
 
@@ -38,7 +44,17 @@ exports.init = function () {
 				path: 'public/scripts/'
 			}
 		}
-	})
+	});
+
+	// server.route({
+	// 	method: 'GET',
+	// 	path: '/{file*}',
+	// 	handler: {
+	// 		file: function(request) {
+	// 			return requst.param.filename;
+	// 		}
+	// 	}
+	// });
 
 	return server;
 };

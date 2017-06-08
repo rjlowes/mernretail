@@ -4,11 +4,22 @@ import React, {Component} from 'react';
 export default class ProductDetails extends Component {
 
     renderProduct() {
-        console.log('renderProduct');
-        console.log(this.props.product);
-        if(this.props.product) {
+        const product = this.props.product;
+
+        if(product) {
             return (
-                <h1>{this.props.product.title}</h1>
+                <div>
+                    <h1 className="type-clear-margin" itemProp="name">{product.title}</h1>
+                    <p>{product.description}</p>
+
+                     <p className="type-lead" itemScope itemType="http://schema.org/Offer">
+                        <span className="price" itemProp="price">&pound;100.00</span>
+                    </p>
+
+                    <div itemProp="description">
+                        <p>{product.description}</p>
+                    </div>
+                </div>
             );
         }
 

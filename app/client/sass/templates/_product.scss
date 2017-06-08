@@ -5,10 +5,12 @@
 
 .t-product__img-col {
     //@extend .col-xs-12, .col-md-6;
+    @extend .col-sm-6;
 }
 
 .t-product__detail-col {
     //@extend .col-xs-12, .col-md-4;
+    @extend .col-sm-6;
 }
 
 

@@ -43,7 +43,8 @@ module.exports = function (server) {
 			for(var i = 0; i < 10; i++) {
 				products.push({
 					id: i,
-					title: 'Product ' + i
+					title: 'Product ' + i,
+					description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac lectus laoreet, aliquet lacus at, maximus nisl. Suspendisse potenti. Mauris imperdiet, dolor quis blandit dignissim, purus justo consectetur erat, nec finibus enim nunc nec ligula. Nunc ullamcorper orci ut orci tristique ultrices.'
 				});
 			}
 
@@ -57,7 +58,15 @@ module.exports = function (server) {
 		handler: function (request, reply) {
 			let productId = request.params.productId;
 			let product = {
-                title: 'Product' + productId
+                title: 'Product' + productId,
+                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac lectus laoreet, aliquet lacus at, maximus nisl. Suspendisse potenti. Mauris imperdiet, dolor quis blandit dignissim, purus justo consectetur erat, nec finibus enim nunc nec ligula. Nunc ullamcorper orci ut orci tristique ultrices.',
+                variants: [{
+						sku: 'abc',
+						size: 'SM'
+					},{
+						sku: 'def',
+						size: 'MD'
+					}]
 			};
 			reply(product);
 		}

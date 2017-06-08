@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
 import Navigation from 'lib/navigation/Navigation';
+import MenuButton from 'lib/navigation/MenuButton';
 
 
 export default class Header extends Component {
@@ -10,12 +11,7 @@ export default class Header extends Component {
 		return (
 			<header className="global-header">
 
-                <button id="main-menu-open" className="global-header__menu-btn fx-pipes">
-                    <span className="fx-pipes__bottom"></span>
-                    <span className="fx-pipes__top"></span>
-                    <span className="fx-pipes__left"></span>
-                    <span className="fx-pipes__right"></span>
-                </button>
+                <MenuButton />
 
                 <button id="shopping-basket-open" className="global-header-basket-btn fx-pipes">
                     <span className="fx-pipes__bottom"></span>

@@ -17,6 +17,7 @@ export default class HomePage extends Component {
                                 <p className="text-small">Up to 70% off sale</p>
                             </div>
                         </div>
+                        {/*
                         <div className="banner-jumbo">
                             <img src="/images/content/home/gallery/womens-sale.jpg" className="banner-jumbo__bg" alt="Womens, up to 70% off" />
                             <div className="banner-jumbo__content banner-jumbo__content--left">
@@ -24,6 +25,7 @@ export default class HomePage extends Component {
                                 <p className="text-small">Up to 70% off sale</p>
                             </div>
                         </div>
+                        */}
                     </div>
 
                     <div className="container">

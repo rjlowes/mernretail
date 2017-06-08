@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './core/App';
+import MainLayout from './layout/MainLayout';
 
 ReactDOM.render(
-	<App />,
+	<MainLayout />,
 	document.getElementById('container')
 );

@@ -11,6 +11,8 @@ export default class Navigation extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {cats: []};
+
+		this.navLinkClickHandler = this.navLinkClickHandler.bind(this);
 	}
 
 	componentDidMount() {
@@ -26,22 +28,24 @@ export default class Navigation extends Component {
 		});
 	}
 
-	setDisplayTree() {
+	navLinkClickHandler(e) {
+		document.body.classList.remove('show-nav');
+	}
 
-	    // to open body.show-nav
+	setDisplayTree() {
 
 		let itemList = (
 			<ul className="nav-list nav-list--l0">
 				{this.state.cats.map((category, index) => {
 					return(
 						<li key={index} className="nav-list__item">
-							<Link to={`/category/${category.slug}`} className="nav-list__item-link">{category.name}</Link>
+							<Link to={`/category/${category.slug}`} className="nav-list__item-link" onClick={this.navLinkClickHandler}>{category.name}</Link>
 							{category.children.length > 0 && 
 								<ul>
 									{category.children.map((category, index) => {
 										return(
 											<li key={index}>
-												<Link to={`/category/${category.slug}`}>{category.name}</Link>
+												<Link to={`/category/${category.slug}`} onClick={this.navLinkClickHandler}>{category.name}</Link>
 											</li>
 										)
 									})}

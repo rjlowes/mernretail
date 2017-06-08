@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 import ProductDetails from 'lib/catalogue/ProductDetails';
 import AddToBagForm from 'lib/forms/AddToBagForm';
+import ProductFeatures from 'lib/catalogue/ProductFeatures';
 
 
 export default class ProductDetailsPage extends Component {
@@ -19,7 +20,7 @@ export default class ProductDetailsPage extends Component {
 	    fetch('/api/products/' + this.props.match.params.productId, {
 	        method: 'GET'
         })
-        .then((response) => response.data)
+        .then((response) => response.json())
         .then((data) => {
             this.setState({product: data});
         });
@@ -28,10 +29,72 @@ export default class ProductDetailsPage extends Component {
 
 	render() {
 		return (
-			<section>
-                <ProductDetails product={this.state.product} />
-                <AddToBagForm />
-            </section>
+            <article itemScope itemType="http://schema.org/Product" className="container">
+    			<section className="t-product">
+                    <div className="t-product__img-col">
+                        <img src="/images/products/placeholder/mobile-prod/1.jpg" itemProp="image" className="img-responsive" />
+                    </div>
+                    <div className="t-product__detail-col">
+                        <ProductDetails product={this.state.product} />
+                        <AddToBagForm product={this.state.product} />
+                        <ProductFeatures />
+                    </div> 
+                    
+                    
+
+                </section>
+            </article>
 		);
 	}
 }
+
+
+/**
+<div class="t-product">
+            <div class="t-product__img-col">
+                <img src="{% static 'images/products/placeholder/mobile-prod/1.jpg' %}" itemprop="image" class="img-responsive" />
+            </div>
+            <div class="t-product__detail-col">
+                <h1 class="type-clear-margin" itemprop="name">{{ product.title }}</h1>
+                <p>{{ product.description }}</p>
+
+                <div id="basket-form"></div>
+
+
+                <p class="type-lead" itemscope itemtype="http://schema.org/Offer">
+                    <span class="price" itemprop="price">&pound;100.00</span>
+                    <!--<span class="availability" itemprop="availability">In stock!</span>-->
+                </p>
+
+                <div class="mobile-gallery">
+                    <!-- todo -->
+                </div>
+
+                <div itemprop="description">
+                    <p>{{ product.title }}</p>
+                    <!-- Long Description -->
+                </div>
+
+                {% include './partials/purchase-form.html' %}
+                {% include './partials/product-features.html' %}
+            </div>
+
+            <div class="">
+                <div class="Wallop Wallop--slide" id="wallop-desktop" wallop-slider>
+                    <div class="Wallop-list">
+                        <div class="Wallop-item"><img src="images/products/placeholder/mobile-prod/1.jpg" itemprop="image" class="img-responsive" /></div>
+                        <div class="Wallop-item"><img src="images/products/placeholder/mobile-prod/1.jpg" itemprop="image" class="img-responsive" /></div>
+                        <div class="Wallop-item"><img src="images/products/placeholder/mobile-prod/1.jpg" itemprop="image" class="img-responsive" /></div>
+                        <div class="Wallop-item"><img src="images/products/placeholder/mobile-prod/1.jpg" itemprop="image" class="img-responsive" /></div>
+                        <div class="Wallop-item"><img src="images/products/placeholder/mobile-prod/1.jpg" itemprop="image" class="img-responsive" /></div>
+                    </div>
+                    <button class="Wallop-buttonPrevious btn-pager btn-pager--left">
+                        <span>Previous</span>
+                    </button>
+                    <button class="Wallop-buttonNext btn-pager btn-pager--right">
+                        <span>Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+*/

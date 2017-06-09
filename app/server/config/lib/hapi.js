@@ -78,7 +78,7 @@ exports.init = function () {
 
     server.route({
         method: 'GET',
-        path: '/',
+        path: '/{p*}',
         handler: function (request, reply) {
             reply.file('./public/index.html');
         }

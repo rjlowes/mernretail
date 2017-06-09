@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
 
-export default class LoginPage extends Component {
+export default class RegisterPage extends Component {
 
 
     render() {
@@ -17,7 +17,7 @@ export default class LoginPage extends Component {
                         <label htmlFor="password" className="form-label">Password</label>
                         <input type="password" name="password" id="password" className="form-input" />
                     </div>
-                    <button type="submit" className="btn">Login</button>
+                    <button type="submit" className="btn">Register</button>
                 </form>
             </div>
         );

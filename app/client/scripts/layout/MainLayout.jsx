@@ -8,15 +8,18 @@ import {
 import HomePage from '../modules/home/HomePage';
 import ProductListPage from '../modules/catalogue/ProductListPage';
 import ProductDetailsPage from '../modules/catalogue/ProductDetailsPage';
+import LoginPage from 'modules/authentication/LoginPage';
+import RegisterPage from 'modules/authentication/RegisterPage';
 
 import Header from './partials/Header';
 
 
 export default class MainLayout extends Component {
+	
 	constructor(props) {
 		super(props);
-		console.log('main layout');
 	}
+
 	render() {
 		return (
 			<Router>
@@ -26,6 +29,8 @@ export default class MainLayout extends Component {
 						<Route exact path="/" component={HomePage} />
 						<Route exact path="/category/:categoryId" component={ProductListPage} />
 						<Route exact path="/products/:productId" component={ProductDetailsPage} />
+						<Route exact path="/secure/login" component={LoginPage} />
+						<Route exact path="/secure/register" component={RegisterPage} />
 					</main>
 
 				</div>

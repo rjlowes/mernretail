@@ -10,6 +10,7 @@ import ProductListPage from '../modules/catalogue/ProductListPage';
 import ProductDetailsPage from '../modules/catalogue/ProductDetailsPage';
 import LoginPage from 'modules/authentication/LoginPage';
 import RegisterPage from 'modules/authentication/RegisterPage';
+import BasketPage from 'modules/checkout/BasketPage';
 
 import Header from './partials/Header';
 
@@ -31,6 +32,7 @@ export default class MainLayout extends Component {
 						<Route exact path="/products/:productId" component={ProductDetailsPage} />
 						<Route exact path="/secure/login" component={LoginPage} />
 						<Route exact path="/secure/register" component={RegisterPage} />
+						<Route exact path="/basket" component={BasketPage} />
 					</main>
 
 				</div>

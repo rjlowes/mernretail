@@ -10,6 +10,17 @@ export default class ProductDetailsPage extends Component {
     constructor(props) {
         super(props);
         this.state = {product: null};
+
+        this.submitBasketForm = this.submitBasketForm.bind(this);
+    }
+
+    addToBasket() {
+        
+    }
+
+    submitBasketForm(data) {
+        console.log('parent submit');
+        console.log(data)
     }
 
     componentDidMount() {
@@ -36,7 +47,7 @@ export default class ProductDetailsPage extends Component {
                     </div>
                     <div className="t-product__detail-col">
                         <ProductDetails product={this.state.product} />
-                        <AddToBagForm product={this.state.product} />
+                        <AddToBagForm product={this.state.product} submitBasketForm={this.submitBasketForm} />
                         <ProductFeatures />
                     </div> 
                     

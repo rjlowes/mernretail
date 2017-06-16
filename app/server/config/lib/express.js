@@ -4,13 +4,17 @@ const config = require('../config');
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const session = require('session');
+const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const passport = require('passport');
+const hbs = require('express-hbs');
 
 
 exports.initMiddleware = function (app) {
+	app.use(bodyParser.urlencoded({extended: true}));
+	app.use(bodyParser.json());
+	app.use(cookieParser());
 
 };
 
@@ -18,27 +22,35 @@ exports.initViewEngine = function (app) {
 	// Serve static files
 	app.use(express.static(path.resolve('./public')));
 
-	
+	// Express handlebars
+	app.engine('hbs', hbs.express4({
+		//partialsDir: './app/server/views/partials',
+		layoutsDir: './app/server/views/layout'
+	}));
+	app.set('view engine', 'hbs');
+	app.set('views', './app/server/views');
 };
+
 
 exports.initSession = function (app) {
 
 };
 
 exports.initModulesServerRoutes = function (app, passport) {
-	// Include last as it has a wild card route
-	//require('../../modules/core/routes/core.routes')(app);
+	// require(path.join(__rootdir, '/modules/users/routes/users.routes'))(app);
+	require(path.join(__rootdir, '/modules/customer/routes/customer.routes'))(app);
+	require(path.join(__rootdir, '/modules/catalogue/routes/category.routes'))(app);
 
-	// Other routes
-
-	//  path must be absolute or specify root to res.sendFile
 	app.use('*', function (req, res) {
-	  res.sendFile('index.html');
+	  res.render('index');
 	});
 };
 
 exports.initPassport = function (app) {
-
+	app.use(session(config.express.session));
+	app.use(passport.initialize());
+	app.use(passport.session());
+	require('./passport').init(passport);
 };
 
 exports.init = function () {

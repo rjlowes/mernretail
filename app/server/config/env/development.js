@@ -2,7 +2,12 @@
 
 module.exports = {
 	db: {
-		url: 'mongodb://localhost/linkstack-local',
+		url: 'mongodb://localhost/rockstars-local',
 		debug: true
-	}
+	},
+    express: {
+        session: {
+            secret: 'averybigsecret'
+        } 
+    }
 };

@@ -1,24 +1,39 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
+import LoginForm from 'lib/forms/auth/LoginForm';
+
 
 export default class LoginPage extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {user: {email: null, password: null}};
+
+        this.submitLogin = this.submitLogin.bind(this);
+    }
+
+    submitLogin() {
+        let headers = new Headers({'Content-Type': 'application/json'});
+        let request = new Request('/api/login', {
+            method: 'POST',
+            headers: headers
+        });
+
+        fetch(request)
+            .then((response) => response.json())
+            .then(data => {
+                console.log('data: ', data);
+            }).catch(err => {
+                console.log('err ', err);
+            })
+    }
 
     render() {
         return (
             <div className="container">
-                <form method="post" action="">
-                    <div className="form-group">
-                        <label htmlFor="email" className="form-label">Email</label>
-                        <input type="email" name="email" id="email" className="form-input" />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="password" className="form-label">Password</label>
-                        <input type="password" name="password" id="password" className="form-input" />
-                    </div>
-                    <button type="submit" className="btn">Login</button>
-                </form>
+                <LoginForm user={this.state.user} parentSubmit={this.submitLogin} />
             </div>
         );
     }

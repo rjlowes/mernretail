@@ -1207,7 +1207,7 @@ label,
   overflow: hidden;
   margin-bottom: 15px; }
 
-.form-control {
+.form-input {
   border: 1px solid #d5d5d5;
   border-radius: 3px;
   color: #535353;
@@ -1218,13 +1218,13 @@ label,
   line-height: 2.4em;
   padding: 0 .8rem;
   width: 100%; }
-  .form-control--med {
+  .form-input--med {
     width: 50%; }
-  .form-control--ext {
+  .form-input--ext {
     font-family: "montserratblack", sans-serif;
     line-height: 3.462;
     padding-right: 54px; }
-  .form-control:active, .form-control:focus {
+  .form-input:active, .form-input:focus {
     border-color: #29abe2 !important;
     outline: none; }
 

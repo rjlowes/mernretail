@@ -20,7 +20,7 @@ export default(state = initialState, action) => {
 		case 'ADD_LAST_CATEGORY':
 			return {
 				...state,
-				lastCategoryId: action.lastCategoryId
+				lastCategoryId: action.categoryId
 			};
 		case 'ADD_CATEGORY_PRODUCTS':
 			return {

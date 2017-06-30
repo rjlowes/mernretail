@@ -6,7 +6,6 @@ const passport = require('passport');
 
 
 exports.register = function (req, res, next) {
-    console.log('signup route');
     passport.authenticate('local-signup', (err, user, info) => {
         if (err) return next(err);
 
@@ -42,4 +41,12 @@ exports.login = function (req, res, next) {
 			});
 		}
 	})(req, res, next);
+};
+
+exports.logout = function (req, res) {
+
+};
+
+exports.isAuthenticated = function (req, res) {
+    res.status(200).json({'isAuthenticated', req.isAuthenticated()});
 };

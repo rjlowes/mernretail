@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
-import LoginForm from 'lib/forms/auth/LoginForm';
+import LoginForm from 'lib/form/auth/LoginForm';
 
 
 export default class LoginPage extends Component {
@@ -18,13 +18,15 @@ export default class LoginPage extends Component {
         let headers = new Headers({'Content-Type': 'application/json'});
         let request = new Request('/api/login', {
             method: 'POST',
-            headers: headers
+            headers: headers,
+            body: JSON.stringify(this.state.user)
         });
 
         fetch(request)
             .then((response) => response.json())
             .then(data => {
-                console.log('data: ', data);
+                // TODO this may need to optionally redirect to the checkout
+                this.props.history.push('/account/dashboard');
             }).catch(err => {
                 console.log('err ', err);
             })

@@ -1,37 +1,48 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
-import Navigation from 'lib/navigation/Navigation';
-import MenuButton from 'lib/navigation/MenuButton';
+import Menu from 'lib/navigation/Menu';
+import MenuButton from 'lib/buttons/MenuButton';
+import AccountLinks from 'layout/partials/AccountLinks';
+
+import store from 'lib/redux/store';
+import {connect} from 'react-redux';
 
 
+@connect((store) => {
+    return {
+        customer: store.customers.customer
+    };
+})
 export default class Header extends Component {
 
+    // componentDidMount() {
+    //     store.subscribe(() => {
+    //         console.log(store.getState());
+    //     });
+    // }
+
 	render() {
+        
 		return (
-			<header className="global-header">
+			<header className="g-header">
 
-                <MenuButton />
+                <MenuButton open={true} />
 
-                <button id="shopping-basket-open" className="global-header-basket-btn fx-pipes">
-                    <span className="fx-pipes__bottom"></span>
-                    <span className="fx-pipes__top"></span>
-                    <span className="fx-pipes__left"></span>
-                    <span className="fx-pipes__right"></span>
-                </button>
+                <AccountLinks customer={this.props.customer} />
 
-                <div className="global-header__navigation">
-                    <Navigation />
+                <div className="g-header__navigation">
+                    <Menu />
                 </div>
 
-                <div className="navbar__basket">
-                    mini basket...
-                </div>
-
-                <div className="global-header__logo">
+                <div className="g-header__logo">
                     <Link to="/" className="logo" href="#/">
                         <img src="/images/logo2.png" className="img-responsive" />
                     </Link>
+                </div>
+
+                <div className="g-header__session">
+                    basket etc
                 </div>
 			</header>
 		);

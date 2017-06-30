@@ -14,7 +14,6 @@ exports.register = function (req, res, next) {
         if (!customer) {
             res.sendStatus(401);
         } else {
-            // passport.authenticate() middleware invokes req.login() automatically.
             req.login(customer, (err) => {
                 if (err) {
                     res.status(500).json({message: "Login failed"});
@@ -22,14 +21,11 @@ exports.register = function (req, res, next) {
                     res.status(200).json({'isAuthenticated': req.isAuthenticated(), 'customer': customer});
                 }
             });
-            
-            // res.status(200).json({'isAuthenticated': req.isAuthenticated(), 'customer': customer});
         }
     })(req, res, next);
 };
 
 exports.login = function (req, res, next) {
-    console.log('login route');
     passport.authenticate('local-login', (err, customer, info) => {
         if (err) return next(err);
 

@@ -34,6 +34,18 @@ exports.initViewEngine = function (app) {
 
 exports.initSession = function (app) {
 
+	//var app = express()
+	var sess = {
+	  secret: 'keyboard cat',
+	  cookie: {}
+	}
+
+	if (app.get('env') === 'production') {
+		app.set('trust proxy', 1) // trust first proxy
+		sess.cookie.secure = true // serve secure cookies
+	}
+
+	app.use(session(sess))
 };
 
 exports.initModulesServerRoutes = function (app, passport) {
@@ -47,7 +59,7 @@ exports.initModulesServerRoutes = function (app, passport) {
 };
 
 exports.initPassport = function (app) {
-	app.use(session(config.express.session));
+	//app.use(session(config.express.session));
 	app.use(passport.initialize());
 	app.use(passport.session());
 	require('./passport').init(passport);
@@ -58,6 +70,7 @@ exports.init = function () {
 
 	this.initMiddleware(app);
 	this.initViewEngine(app);
+	this.initSession(app);
 	this.initPassport(app);
 	this.initModulesServerRoutes(app);
 

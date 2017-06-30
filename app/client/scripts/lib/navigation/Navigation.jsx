@@ -3,49 +3,91 @@ import { Link } from 'react-router-dom';
 
 import NavigationList from 'lib/navigation/NavigationList';
 import NavigationItem from 'lib/navigation/NavigationItem';
+import MenuButton from 'lib/buttons/MenuButton';
 
 import Search from 'lib/navigation/Search';
 
 export default class Navigation extends Component {
 
-	constructor(props) {
-		super(props);
-		this.state = {cats: []};
+	// constructor(props) {
+	// 	super(props);
+	// 	this.state = {cats: []};
 
-		this.navLinkClickHandler = this.navLinkClickHandler.bind(this);
-	}
+	// 	this.navLinkClickHandler = this.navLinkClickHandler.bind(this);
+	// }
 
-	componentDidMount() {
-		this.loadCategoryHierarchy();
-	}
+	// componentDidMount() {
+	// 	this.loadCategoryHierarchy();
+	// }
 
-	loadCategoryHierarchy() {
-		fetch('/api/category-hierarchy', {
-			method: 'GET'
-		}).then(response => response.json())
-		.then(data => {
-			this.setState({cats: data.cats, depth: data.depth});
-		});
-	}
+	// loadCategoryHierarchy() {
+	// 	fetch('/api/category-hierarchy', {
+	// 		method: 'GET'
+	// 	}).then(response => response.json())
+	// 	.then(data => {
+	// 		this.setState({cats: data.cats, depth: data.depth});
+	// 	});
+	// }
 
-	navLinkClickHandler(e) {
-		document.body.classList.remove('show-nav');
-	}
+	// navLinkClickHandler(e) {
+	// 	document.body.classList.remove('show-nav');
+	// }
 
-	setDisplayTree() {
+	// setDisplayTree() {
 
-		let itemList = (
+	// 	let itemList = (
+	// 		<ul className="nav-list nav-list--l0">
+	// 			{this.props.categories.map((category, index) => {
+	// 				return (
+	// 					<li key={index} className="nav-list__item">
+	// 						<Link to={`/category/${category.slug}`} className="nav-list__item-link" onClick={this.props.onClick}>{category.name}</Link>
+	// 						{category.children.length > 0 && 
+	// 							<ul>
+	// 								{category.children.map((category, index) => {
+	// 									return(
+	// 										<li key={index}>
+	// 											<Link to={`/category/${category.slug}`} onClick={this.props.onClick}>{category.name}</Link>
+	// 										</li>
+	// 									)
+	// 								})}
+	// 							</ul>
+	// 						}
+	// 					</li>
+	// 				)
+	// 			})}
+	// 		</ul>
+	// 	);
+
+	// 	return itemList;
+	// }
+
+	// renderNavigation() {
+	// 	let itemList = this.setDisplayTree();
+
+	// 	return (
+			
+	// 		<nav className="main-menu">
+	// 			<MenuButton />
+ //                <Search />
+	// 			{itemList}
+	// 		</nav>
+			
+	// 	);
+	// }
+
+	renderNavigation() {
+		return (
 			<ul className="nav-list nav-list--l0">
-				{this.state.cats.map((category, index) => {
-					return(
+				{this.props.categories.map((category, index) => {
+					return (
 						<li key={index} className="nav-list__item">
-							<Link to={`/category/${category.slug}`} className="nav-list__item-link" onClick={this.navLinkClickHandler}>{category.name}</Link>
+							<Link to={`/category/${category.slug}`} className="nav-list__item-link" onClick={this.props.onClick}>{category.name}</Link>
 							{category.children.length > 0 && 
 								<ul>
 									{category.children.map((category, index) => {
 										return(
 											<li key={index}>
-												<Link to={`/category/${category.slug}`} onClick={this.navLinkClickHandler}>{category.name}</Link>
+												<Link to={`/category/${category.slug}`} onClick={this.props.onClick}>{category.name}</Link>
 											</li>
 										)
 									})}
@@ -56,23 +98,13 @@ export default class Navigation extends Component {
 				})}
 			</ul>
 		);
-
-		return itemList;
 	}
 
 	render() {
-		let itemList = this.setDisplayTree();
-
-		return (
-			<div className="main-menu">
-				<nav className="main-menu__container">
-					<span id="close-menu" className="main-menu__btn-close icon icon--inverse">
-						S
-					</span>
-                    <Search />
-					{itemList}
-				</nav>
-			</div>
-		);
+		if(this.props.categories) {
+			return this.renderNavigation();
+		} else {
+			return null;
+		}
 	}
 }

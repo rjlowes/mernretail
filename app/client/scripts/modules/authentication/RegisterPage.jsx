@@ -1,22 +1,26 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
-import RegisterForm from 'lib/forms/auth/RegisterForm';
+import RegisterForm from 'lib/form/auth/RegisterForm';
+
+// TODO look to create a service or set of services!
+import store from 'lib/redux/store';
+import {registerCustomer, customerTest} from 'lib/redux/actions/customerActions';
 
 
 export default class RegisterPage extends Component {
 
     constructor(props) {
         super(props);
-
         this.state = {customer: {email: null, password: null, title: null, firstname: null, lastname: null}};
-        this.state = {customer: {email: 'test@example.com', password: 'password', title: 'Mr', firstname: 'John', lastname: 'Smith'}};
-
         this.submitCustomer = this.submitCustomer.bind(this);
     }
 
+    componentDidMount() {
+        store.dispatch(customerTest());
+    }
+
     submitCustomer() {
-        console.log('submit registration request');
         let headers = new Headers({'Content-Type': 'application/json'});
         let request = new Request('/api/register', {
             method: 'POST',
@@ -27,12 +31,12 @@ export default class RegisterPage extends Component {
         fetch(request)
             .then((response) => response.json())
             .then(data => {
-                console.log('data: ', data);
+                store.dispatch(registerCustomer(data.customer));
+                this.props.history.push('/account/dashboard');
             }).catch(err => {
                 console.log('err ', err);
             })
     }
-
 
     render() {
         return (

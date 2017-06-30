@@ -33,7 +33,7 @@ exports.initLocalLoginStrategy = function (passport) {
             if (err) return done(err);
 
             if (!customer) return done(null, false, req.flash('loginMessage', 'No customer found'));
-
+            
             if (!customer.validPassword(password)) {
                 return done(null, false, req.flash('loginMessage', 'Password invalid'));
             }

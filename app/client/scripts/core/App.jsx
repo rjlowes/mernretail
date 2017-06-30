@@ -18,7 +18,10 @@ import {addLastCategory} from 'lib/redux/actions/categoryActions';
 export default class App extends Component {
 
 	componentDidMount() {
+		let r = addLastCategory('test-cat');
+		console.log('r: ', r);
 		store.dispatch(addLastCategory('wc_dept_mens-tees'));
+
 	}
 
 	render() {

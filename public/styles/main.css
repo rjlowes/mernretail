@@ -887,6 +887,77 @@ html {
   .offset-xl-11 {
     margin-left: 91.66667%; } }
 
+.icon-btn {
+  font-size: 14px;
+  text-transform: uppercase; }
+
+.icon-btn__label--sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0; }
+
+.material-icons, [class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga'; }
+
+.material-icons, [class^="icon-"]:before,
+[class*=" icon-"]:before {
+  vertical-align: middle; }
+
+.icon-menu:before {
+  content: '\E5D2';
+  color: #000; }
+
+.icon-close:before {
+  content: '\E5CD'; }
+
+.icon-arrow-drop-down {
+  content: '\E5C5'; }
+
+.icon-play:before {
+  content: '\E037'; }
+
+.icon-size--md:before {
+  font-size: 40px; }
+
+/*[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  font-size: 24px;
+  margin: 0 5px;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-burger:before {
+  content: "\e622"; }*/
 /*.show-tablet {
     display: none;
     @include breakpoint('tablet') {
@@ -1331,27 +1402,28 @@ label.error {
   height: auto;
   width: 100%; }
 
-.global-header {
+.g-header {
   background: #fff;
   border-bottom: 1px solid #f4f4f4;
   height: 65px;
   padding: 10px 0;
   margin-bottom: 10px;
   position: relative;
-  z-index: 100; }
-  .global-header::after {
+  z-index: 100;
+  display: flex; }
+  .g-header::after {
     display: block;
     content: "";
     clear: both; }
 
-.global-header__logo {
+.g-header__logo {
   display: block;
   margin: 9px auto;
   width: 142px; }
-  .global-header__logo img {
+  .g-header__logo img {
     width: 100%; }
 
-.global-header__menu-btn {
+.g-header__menu-btn {
   border: 1px solid rgba(62, 62, 62, 0.08);
   cursor: pointer;
   position: absolute;
@@ -1363,7 +1435,7 @@ label.error {
   padding: 7px;
   z-index: 10001; }
 
-.global-header__menu-btn svg {
+.g-header__menu-btn svg {
   display: block;
   position: absolute;
   top: 15px;
@@ -1373,7 +1445,7 @@ label.error {
   margin: 0;
   padding: 0; }
 
-.global-header-basket-btn {
+.g-header-basket-btn {
   border: 1px solid rgba(62, 62, 62, 0.08);
   cursor: pointer;
   position: absolute;

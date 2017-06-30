@@ -1,10 +1,10 @@
 'use strict';
 
 exports.hierarchy = function (req, res) {
+	req.session.hierarchySet = true;
 	var testData = {
 		depth: 2,
-		cats: [
-			{
+		cats: [{
 				name: 'Menswear', 
 				slug: 'menswear',
 				children: [{

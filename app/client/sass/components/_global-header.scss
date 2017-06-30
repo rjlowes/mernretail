@@ -1,4 +1,4 @@
-.global-header {
+.g-header {
     @include clearfix;
     background: #fff;
     border-bottom: 1px solid $border-color;
@@ -7,9 +7,15 @@
     margin-bottom: 10px;
     position: relative;
     z-index: 100;
+
+    display: flex;
 }
 
-.global-header__logo {
+.g-header__navigation {
+
+}
+
+.g-header__logo {
     display: block;
     margin: 9px auto;
     width: 142px;
@@ -19,7 +25,15 @@
     }
 }
 
-.global-header__menu-btn {
+
+.g-header__session {
+
+}
+
+
+// I think these are defunct
+
+.g-header__menu-btn {
     border: 1px solid rgba(62,62,62,.08);
     cursor: pointer;
     position: absolute;
@@ -32,7 +46,7 @@
     z-index: 10001;
 }
 
-.global-header__menu-btn svg {
+.g-header__menu-btn svg {
     display: block;
     position: absolute;
     top: 15px;
@@ -43,7 +57,7 @@
     padding: 0;
 }
 
-.global-header-basket-btn {
+.g-header-basket-btn {
 	border: 1px solid rgba(62,62,62,.08);
     cursor: pointer;
     position: absolute;

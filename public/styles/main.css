@@ -1539,9 +1539,6 @@ label.error {
   float: right;
   margin: 10px; }
 
-.main-menu__container {
-  padding: 0 35px; }
-
 .nav-list__link {
   transition: transform 0s 0.4s;
   transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1); }

@@ -18,7 +18,7 @@ import BasketPage from 'modules/checkout/BasketPage';
 
 import AccountLayout from 'modules/account/AccountLayout';
 import AccountHome from 'modules/account/AccountHome';
-import AddressbookList from 'modules/account/AddressbookList';
+import AddressbookPage from 'modules/account/AddressbookPage';
 import AddressNew from 'modules/account/AddressNew';
 
 import Header from './partials/Header';
@@ -65,7 +65,7 @@ export default class MainLayout extends Component {
 								<Route exact path="/basket" component={BasketPage} />
 								<AccountLayout>
 									<Route path="/account/dashboard" component={AccountHome} />
-									<Route exact path="/account/addressbook" component={AddressbookList} />
+									<Route exact path="/account/addressbook" component={AddressbookPage} />
 									<Route path="/account/addressbook/new" component={AddressNew} />
 								</AccountLayout>
 							</Switch>

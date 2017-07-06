@@ -7,8 +7,10 @@ export default class Telephone extends Component {
         return (
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="field-telephone" className="form-label">Telephone</label>
-                    <input aria-required="true" aria-label="telephone" type="text" name="telephone" id="field-telephone" className="form-input" placeholder="Tel no." required />
+                    <label htmlFor="field-telephone" className="form-group__label">Telephone</label>
+                    <div className="form-group__input">
+                        <input aria-required="true" aria-label="telephone" type="text" name="telephone" id="field-telephone" className="form-input" required />
+                    </div>
                 </div>
             </fieldset>
         );

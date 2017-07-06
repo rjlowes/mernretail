@@ -26,10 +26,13 @@ export default class Header extends Component {
         
 		return (
 			<header className="g-header">
-
-                <MenuButton open={true} />
-
+                <div className="g-header__container">
+                <div className="g-header__menu-btn">
+                    <MenuButton open={true} />
+                </div>
+                {/* 
                 <AccountLinks customer={this.props.customer} />
+                */}
 
                 <div className="g-header__navigation">
                     <Menu />
@@ -43,6 +46,7 @@ export default class Header extends Component {
 
                 <div className="g-header__session">
                     basket etc
+                </div>
                 </div>
 			</header>
 		);

@@ -7,9 +7,9 @@ import Search from 'lib/navigation/Search';
 const Menu = (props) => {
 
     return (
-        <nav className="main-menu">
+        <nav className="g-navigation">
             <MenuButton />
-            <Search />
+            {/*<Search />*/}
             <NavigationContainer />
         </nav>
     );

@@ -14,14 +14,18 @@ export default class Navigation extends Component {
 			<ul className="nav-list nav-list--l0">
 				{this.props.categories.map((category, index) => {
 					return (
-						<li key={index} className="nav-list__item">
-							<Link to={`/category/${category.slug}`} className="nav-list__item-link" onClick={this.props.onClick}>{category.name}</Link>
+						<li key={index} className="nav-list__item nav-list__item--l0">
+							<Link to={`/category/${category.slug}`} 
+								className="nav-list__item-link nav-list__item-link--l0" 
+								onClick={this.props.onClick}>{category.name}</Link>
 							{category.children.length > 0 && 
-								<ul>
+								<ul className="nav-list nav-list--l1">
 									{category.children.map((category, index) => {
 										return(
-											<li key={index}>
-												<Link to={`/category/${category.slug}`} onClick={this.props.onClick}>{category.name}</Link>
+											<li key={index} className="nav-list__item nav-list__item--l1">
+												<Link to={`/category/${category.slug}`} 
+													className="nav-list__item-link nav-list__item-link--l0" 
+													onClick={this.props.onClick}>{category.name}</Link>
 											</li>
 										)
 									})}

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 
 export default class AddressLayout extends Component {
@@ -13,7 +14,7 @@ export default class AddressLayout extends Component {
                     <nav className="col-sm-2">
                         <h2 className="type-sml">What can we do for you?</h2>
                         <ul>
-                            <li><a href="">Address book</a></li>
+                            <li><Link to="/account/addressbook">Address book</Link></li>
                             <li><a href="">Your details</a></li>
                             <li><a href="">Your email</a></li>
                             <li><a href="">Your password</a></li>

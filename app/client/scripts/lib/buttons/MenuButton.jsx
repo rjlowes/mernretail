@@ -26,9 +26,17 @@ export default class MenuButton extends Component {
         }
     }
 
+    renderId() {
+        if(this.props.open) {
+            return 'g-menu-button--open';
+        } else {
+            return 'g-menu-button--close';
+        }
+    }
+
 	render() {
 		return (
-            <IconButton label="{this.renderLabel()}" srOnly={true} onClick={this.toggleBodyClass}>
+            <IconButton id={this.renderId()} label="{this.renderLabel()}" srOnly={true} onClick={this.toggleBodyClass}>
                 {this.renderIcon()}
             </IconButton>
 		);

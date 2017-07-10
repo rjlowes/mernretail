@@ -1,10 +1,11 @@
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
 
 import ecomApp from 'lib/redux/reducers/index';
 
 // let store = createStore(ecomApp, 'INITIAL_STATE');
 
-let store = createStore(ecomApp);
+let store = createStore(ecomApp, applyMiddleware(thunk));
 
 
 export default store;

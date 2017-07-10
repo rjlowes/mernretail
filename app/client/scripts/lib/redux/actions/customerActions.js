@@ -1,3 +1,5 @@
+import fetch from 'isomorphic-fetch';
+
 
 // export const createUser = (user) => {
 
@@ -6,6 +8,8 @@
 // 		book: book
 // 	}
 // };
+
+
 
 
 export const registerCustomer = (customer) => {
@@ -22,3 +26,7 @@ export const customerTest = () => {
         test: 'abc...'
     }
 };
+
+
+
+

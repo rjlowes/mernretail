@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import Select from 'lib/form/input/Select';
+import TitleContainer from 'lib/form/input/TitleContainer';
 
 export default class Name extends Component {
 
@@ -14,16 +14,11 @@ export default class Name extends Component {
 
     render() {
         return (
-            <fieldset>
-                <Select id="field-title" name="title" className="form-input" options={this.state.salutations} />
+            <fieldset>  
                 <div className="form-group">
                     <label htmlFor="field-title" className="form-group__label">Title</label>
                     <div className="form-group__input">
-                        <select aria-label="Title" aria-required="true" name="title" id="field-title" className="form-input" required>
-                            {this.state.salutations.map((salutation, index) => {
-                                return (<option value="{{ salutation }}" key={index}>{salutation}</option>)
-                            })}
-                        </select>
+                        <TitleContainer />
                     </div>
                 </div>
                 <div className="form-group">

@@ -1141,6 +1141,7 @@ label,
 .label {
   color: #4d4d4d;
   display: block;
+  font-size: 12px;
   font-family: "montserratblack", sans-serif;
   text-transform: uppercase; }
 
@@ -1270,32 +1271,50 @@ dd {
 .type-inverse legend {
   color: #c9c9c9; }
 
+@font-face {
+  font-family: 'montserratblack';
+  src: url("/fonts/montserrat-black-webfont.woff2") format("woff2"), url("/fonts/montserrat-black-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'montserratregular';
+  src: url("/fonts/montserrat-regular-webfont.woff2") format("woff2"), url("/fonts/montserrat-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'robotoregular';
+  src: url("/fonts/Roboto-Regular-webfont.woff2") format("woff2"), url("/fonts/Roboto-Regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'robotobold';
+  src: url("/fonts/roboto-bold-webfont.woff2") format("woff2"), url("/fonts/roboto-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'robotolight';
+  src: url("/fonts/roboto-light-webfont.woff2") format("woff2"), url("/fonts/roboto-light-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
 .legend-center {
   margin: 0 auto 1em auto; }
-
-.form-group {
-  margin-bottom: 11px; }
-  .form-group::after {
-    display: block;
-    content: "";
-    clear: both; }
-
-label,
-.label {
-  font-size: 12px;
-  padding: 0 0 2px 1px; }
 
 .form-row {
   overflow: hidden;
   margin-bottom: 15px; }
 
 .form-input {
+  font-size: 13px;
+  font-size: 1.3rem;
   border: 1px solid #dedede;
   border-radius: 3px;
   color: #ccc;
   display: block;
-  font-size: 13px;
-  font-size: 1.3rem;
   line-height: 2.4em;
   padding: 0 .8rem;
   width: 100%; }
@@ -1326,12 +1345,6 @@ input[type=radio] {
   vertical-align: 0;
   margin: 0 10px 0 0; }
 
-/*select {
-    background-color: transparent;
-    border: 0;
-    color: #333;
-    line-height: 2.3em;
-}*/
 .form-radio,
 .form-checkbox {
   position: relative; }
@@ -1354,10 +1367,6 @@ input[type=radio] {
 input.ng-invalid.ng-touched {
   border-color: #A7050C; }
 
-/*
-input.ng-valid.ng-touched {
-    border-color: #77BD42;
-}*/
 label.error {
   color: #A7050C;
   font-size: 13px;

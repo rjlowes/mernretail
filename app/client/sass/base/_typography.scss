@@ -53,13 +53,15 @@ label,
 .label {
     color: $colour-form-control;
     display: block;
+    font-size: 12px;
     font-family: $font-family-heading;
     text-transform: uppercase;
 }
 
 legend,
 .legend {
-    color: $colour-primary;
+    // color: $colour-primary;
+    color: #ccc;
     @include rem($font-size-legend);
     font-family: $font-family-heading;
     line-height: $line-height-legend;

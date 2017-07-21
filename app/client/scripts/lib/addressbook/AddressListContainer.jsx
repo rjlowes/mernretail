@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 
 import AddressList from 'lib/addressbook/AddressList';
 
+<<<<<<< HEAD
 import store from 'lib/redux/store';
 import {connect} from 'react-redux';
 
@@ -14,6 +15,9 @@ import {fetchAddressList} from 'lib/redux/addressbook/fetchAddressListActions';
 //         addressbook: store.addresses.addressbook
 //     };
 // })
+=======
+
+>>>>>>> c6ee886d1de3fa18295bb3e7f11e4525e1e7a9d3
 export default class AddressListContainer extends Component {
 
     constructor(props) {
@@ -36,17 +40,24 @@ export default class AddressListContainer extends Component {
             telephone: '07788666555'
         }];
         
+<<<<<<< HEAD
         //this.setState({addresses: dummyAddresses});
         store.dispatch(fetchAddressList());
+=======
+        this.setState({addresses: dummyAddresses});
+>>>>>>> c6ee886d1de3fa18295bb3e7f11e4525e1e7a9d3
     }
 
     render() {
 
+<<<<<<< HEAD
         console.log(store.getState());
 
         console.log('rending....');
         console.log(this.props.addressbook);
 
+=======
+>>>>>>> c6ee886d1de3fa18295bb3e7f11e4525e1e7a9d3
         return (
             <AddressList addresses={this.state.addresses} />
         )

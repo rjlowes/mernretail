@@ -5,7 +5,10 @@ const Address = mongoose.model('Address');
 
 
 exports.list = function (req, res) {
+<<<<<<< HEAD
     console.log('addreebook.list: ', req.user);
+=======
+>>>>>>> c6ee886d1de3fa18295bb3e7f11e4525e1e7a9d3
     Address.find().where('user').equals(req.user._id).exec((err, addresses) => {
         if(err) {
             return res.status(400).send({message: err.message});
@@ -34,7 +37,11 @@ exports.create = function (req, res) {
         if(err) {
             return res.status(400).send({message: err.message, errors: err.errors});
         } else {
+<<<<<<< HEAD
             res.json(address);
+=======
+            res.json(folder);
+>>>>>>> c6ee886d1de3fa18295bb3e7f11e4525e1e7a9d3
         }
     })
 };

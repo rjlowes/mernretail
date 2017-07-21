@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import ProductDetails from 'lib/catalogue/ProductDetails';
-import AddToBagForm from 'lib/forms/AddToBagForm';
+import AddToBagForm from 'lib/form/AddToBagForm';
 import ProductFeatures from 'lib/catalogue/ProductFeatures';
 
 
@@ -10,6 +10,17 @@ export default class ProductDetailsPage extends Component {
     constructor(props) {
         super(props);
         this.state = {product: null};
+
+        this.submitBasketForm = this.submitBasketForm.bind(this);
+    }
+
+    addToBasket() {
+        
+    }
+
+    submitBasketForm(data) {
+        console.log('parent submit');
+        console.log(data);
     }
 
     componentDidMount() {
@@ -18,7 +29,8 @@ export default class ProductDetailsPage extends Component {
 
 	getProduct() {
 	    fetch('/api/products/' + this.props.match.params.productId, {
-	        method: 'GET'
+	        method: 'GET',
+            credentials: 'include'
         })
         .then((response) => response.json())
         .then((data) => {
@@ -36,12 +48,9 @@ export default class ProductDetailsPage extends Component {
                     </div>
                     <div className="t-product__detail-col">
                         <ProductDetails product={this.state.product} />
-                        <AddToBagForm product={this.state.product} />
+                        <AddToBagForm product={this.state.product} submitBasketForm={this.submitBasketForm} />
                         <ProductFeatures />
-                    </div> 
-                    
-                    
-
+                    </div>
                 </section>
             </article>
 		);

@@ -2,24 +2,9 @@
 // http://stackoverflow.com/questions/24210132/remove-border-radius-from-select-tag-in-bootstrap-3
 
 
-fieldset {
-
-}
-
 
 .legend-center {
     margin: 0 auto 1em auto;
-}
-
-.form-group {
-    @include clearfix;
-    margin-bottom: 11px;
-}
-
-label,
-.label {
-    font-size: 12px;
-    padding: 0 0 2px 1px;
 }
 
 // Form field wrapper
@@ -31,12 +16,12 @@ label,
 
 // All input types
 .form-input {    
-    border: 1px solid #d5d5d5;
-    border-radius: 3px;
-    color: #535353;
-    color: black;
-    display: block;
+    @include placeholder{color: $colour-placeholder};
     @include rem($font-size-sm);
+    border: 1px solid #dedede;
+    border-radius: 3px;
+    color: #ccc;
+    display: block;
     line-height: 2.4em;
     padding: 0 .8rem;
     width: 100%;
@@ -54,8 +39,6 @@ label,
     &:active,
     &:focus {
         border-color: $colour-primary !important;
-        //border-width: 2px;
-        //box-shadow: 0 0 2px rgba(0, 157, 245, 0.9);
         outline: none;
     }
 }
@@ -64,33 +47,11 @@ select {
     height: 33px;
 }
 
-// Add to mixin
-input::-webkit-input-placeholder {
-    color: #535353 !important;
-}
-input:-moz-placeholder { /* Firefox 18- */
-    color: #535353 !important;  
-} 
-input::-moz-placeholder {  /* Firefox 19+ */
-    color: #535353 !important;  
-}
-input:-ms-input-placeholder {  
-    color: #535353 !important;  
-}
-
 input[type=checkbox],
 input[type=radio] {
     vertical-align: 0;
     margin: 0 10px 0 0;
 }
-
-
-/*select {
-    background-color: transparent;
-    border: 0;
-    color: #333;
-    line-height: 2.3em;
-}*/
 
 .form-radio,
 .form-checkbox {
@@ -114,25 +75,11 @@ input[type=radio] {
     position: absolute;
 }
 
-// The grid
-//.form-group label {
-//    @extend .col-sm-2;
-//}
-
-//.form-group__control {
-//    @extend .col-sm-6;
-//}
-
 
 // Validation - to be renamed
 input.ng-invalid.ng-touched {
     border-color: #A7050C;
 }
-
-/*
-input.ng-valid.ng-touched {
-    border-color: #77BD42;
-}*/
 
 label.error {
     color: #A7050C;

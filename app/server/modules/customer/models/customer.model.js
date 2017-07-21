@@ -25,6 +25,7 @@ CustomerSchema.methods.validPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
 };
 
+<<<<<<< HEAD
 /**
  * Returns customer data without password
  */
@@ -34,6 +35,8 @@ CustomerSchema.methods.getSafeCustomer = function () {
     return data;
 };
 
+=======
+>>>>>>> c6ee886d1de3fa18295bb3e7f11e4525e1e7a9d3
 
 exports = mongoose.model('Customer', CustomerSchema);
 

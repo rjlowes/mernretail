@@ -1,12 +1,14 @@
 import {combineReducers} from 'redux';
 
-import users from './userReducers';
+import customers from './customerReducers';
 import categories from './categoryReducers';
+import addresses from './addressReducers';
 
 
 const ecomApp = combineReducers({
-	users,
-	categories
+	customers,
+	categories,
+    addresses
 });
 
 export default ecomApp;

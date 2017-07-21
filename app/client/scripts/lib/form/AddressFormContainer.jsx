@@ -25,7 +25,11 @@ export default class AddressFormContainer extends Component {
             postcode: 'TE456ST',
             country: 'United Kingdom'
         }
+<<<<<<< HEAD
         store.dispatch(createAddress(address))
+=======
+        store.dispatch(createAddress())
+>>>>>>> c6ee886d1de3fa18295bb3e7f11e4525e1e7a9d3
     }
 
     submit() {

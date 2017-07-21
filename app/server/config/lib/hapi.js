@@ -1,6 +1,7 @@
 'use strict';
 
 const Hapi = require('hapi');
+const hapiAuthCookie = require('hapi-auth-cookie');
 const inert = require('inert');
 const chalk = require('chalk');
 const path = require('path');
@@ -19,11 +20,21 @@ exports.connect = function (server) {
 };
 
 exports.initServerRoutes = function (server) {
-	server.register(inert, (err) => {
+	server.register([inert, hapiAuthCookie], (err) => {
 		if (err) {
 			console.log(chalk.bgRed('Error registering inert'));
 			throw err;
 		}
+
+		// Hapi auth strategy
+		server.auth.strategy('session', 'cookie', {
+			password: 'thisisasecret',	// cookie secret
+			cookie: 'session',	// cookie name
+			redirectTo: false,
+			isSecure: false,
+			ttl: 24 * 60 * 60 * 1000	// set session to one day
+		});
+
 		
 		require(__rootdir + 'modules/catalogue/routes/catalogue.routes')(server);
 	});

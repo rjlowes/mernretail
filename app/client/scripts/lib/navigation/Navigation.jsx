@@ -3,49 +3,29 @@ import { Link } from 'react-router-dom';
 
 import NavigationList from 'lib/navigation/NavigationList';
 import NavigationItem from 'lib/navigation/NavigationItem';
+import MenuButton from 'lib/buttons/MenuButton';
 
 import Search from 'lib/navigation/Search';
 
 export default class Navigation extends Component {
 
-	constructor(props) {
-		super(props);
-		this.state = {cats: []};
-
-		this.navLinkClickHandler = this.navLinkClickHandler.bind(this);
-	}
-
-	componentDidMount() {
-		this.loadCategoryHierarchy();
-	}
-
-	loadCategoryHierarchy() {
-		fetch('/api/category-hierarchy', {
-			method: 'GET'
-		}).then(response => response.json())
-		.then(data => {
-			this.setState({cats: data.cats, depth: data.depth});
-		});
-	}
-
-	navLinkClickHandler(e) {
-		document.body.classList.remove('show-nav');
-	}
-
-	setDisplayTree() {
-
-		let itemList = (
+	renderNavigation() {
+		return (
 			<ul className="nav-list nav-list--l0">
-				{this.state.cats.map((category, index) => {
-					return(
-						<li key={index} className="nav-list__item">
-							<Link to={`/category/${category.slug}`} className="nav-list__item-link" onClick={this.navLinkClickHandler}>{category.name}</Link>
+				{this.props.categories.map((category, index) => {
+					return (
+						<li key={index} className="nav-list__item nav-list__item--l0">
+							<Link to={`/category/${category.slug}`} 
+								className="nav-list__item-link nav-list__item-link--l0" 
+								onClick={this.props.onClick}>{category.name}</Link>
 							{category.children.length > 0 && 
-								<ul>
+								<ul className="nav-list nav-list--l1">
 									{category.children.map((category, index) => {
 										return(
-											<li key={index}>
-												<Link to={`/category/${category.slug}`} onClick={this.navLinkClickHandler}>{category.name}</Link>
+											<li key={index} className="nav-list__item nav-list__item--l1">
+												<Link to={`/category/${category.slug}`} 
+													className="nav-list__item-link nav-list__item-link--l0" 
+													onClick={this.props.onClick}>{category.name}</Link>
 											</li>
 										)
 									})}
@@ -56,23 +36,13 @@ export default class Navigation extends Component {
 				})}
 			</ul>
 		);
-
-		return itemList;
 	}
 
 	render() {
-		let itemList = this.setDisplayTree();
-
-		return (
-			<div className="main-menu">
-				<nav className="main-menu__container">
-					<span id="close-menu" className="main-menu__btn-close icon icon--inverse">
-						S
-					</span>
-                    <Search />
-					{itemList}
-				</nav>
-			</div>
-		);
+		if(this.props.categories) {
+			return this.renderNavigation();
+		} else {
+			return null;
+		}
 	}
 }

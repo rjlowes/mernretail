@@ -7,8 +7,13 @@ const path = require('path');
 
 
 exports.loadModels = function (callback) {
+	require(path.join(__rootdir, '/modules/users/models/user.model'));
+	require(path.join(__rootdir, '/modules/customer/models/customer.model'));
+	require(path.join(__rootdir, '/modules/customer/models/title.model'));
+	require(path.join(__rootdir, '/modules/addressbook/models/address.model'));
 	require('../../modules/catalogue/models/category.model');
-	console.log(callback);
+
+	
 	if (callback) callback();
 };
 

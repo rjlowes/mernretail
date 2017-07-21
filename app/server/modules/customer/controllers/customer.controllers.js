@@ -25,7 +25,10 @@ exports.register = function (req, res, next) {
     })(req, res, next);
 };
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> c6ee886d1de3fa18295bb3e7f11e4525e1e7a9d3
 exports.login = function (req, res, next) {
     passport.authenticate('local-login', (err, customer, info) => {
         if (err) return next(err);
@@ -43,6 +46,7 @@ exports.login = function (req, res, next) {
         }
     })(req, res, next);
 };
+<<<<<<< HEAD
 
 
 exports.logout = function (req, res) {
@@ -61,3 +65,5 @@ exports.details = function (req, res) {
         res.status(401).json({message: 'Not authenticated'});
     }
 };
+=======
+>>>>>>> c6ee886d1de3fa18295bb3e7f11e4525e1e7a9d3
